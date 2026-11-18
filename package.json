@@ -1,0 +1,214 @@
+{
+  "name": "quasar-rsbuild-app",
+  "version": "1.0.0",
+  "description": "Quasar Framework App CLI with rsBuild/rsPack: SPA, SSR, SSG, PWA, browser extension, mobile and desktop apps from one codebase",
+  "keywords": [
+    "cli",
+    "cordova",
+    "electron",
+    "pwa",
+    "quasar",
+    "rsbuild",
+    "rspack",
+    "spa",
+    "vue",
+    "vuejs",
+    "web"
+  ],
+  "homepage": "https://github.com/tmcdos/quasar-rsbuild-app",
+  "bugs": "https://github.com/tmcdos/quasar-rsbuild-app/issues",
+  "license": "MIT",
+  "author": "TMCDOS",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quasar-rsbuild-app"
+  },
+  "bin": {
+    "quasar": "./bin/quasar.js"
+  },
+  "files": [
+    "exports",
+    "!exports/**/*.test.js",
+    "assets",
+    "bin",
+    "lib",
+    "!lib/**/*.test.js",
+    "templates",
+    "types",
+    "dist"
+  ],
+  "type": "module",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "node": "./exports/wrappers.js",
+      "import": "./exports/wrappers.js"
+    },
+    "./client": {
+      "types": "./exports/client/client.d.ts"
+    },
+    "./package.json": "./package.json",
+    "./bin/quasar": {
+      "node": "./bin/quasar.js"
+    },
+    "./bex/background": {
+      "types": "./types/bex/entrypoints/background.d.ts",
+      "import": "./exports/bex/background.js"
+    },
+    "./bex/content": {
+      "types": "./types/bex/entrypoints/content.d.ts",
+      "import": "./exports/bex/content.js"
+    },
+    "./bex/private/bex-bridge": {
+      "types": "./types/bex/bex-bridge.d.ts",
+      "import": "./exports/bex/private/bex-bridge.js"
+    },
+    "./electron/main": {
+      "types": "./exports/electron/main-runtime.d.ts",
+      "import": "./exports/electron/main-runtime.js"
+    },
+    "./electron/preload": {
+      "types": "./exports/electron/preload-runtime.d.ts",
+      "import": "./exports/electron/preload-runtime.js"
+    },
+    "./capacitor": {
+      "types": "./exports/capacitor/capacitor.d.ts",
+      "require": "./exports/capacitor/capacitor.cjs",
+      "node": "./exports/capacitor/capacitor.js",
+      "import": "./exports/capacitor/capacitor.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.8.1",
+    "@quasar/render-ssr-error": "^2.2.6",
+    "@quasar/ssl-certificate": "^2.1.0",
+    "@rsbuild/core": "^2.2.4",
+    "@rsbuild/plugin-sass": "^2.0.1",
+    "@rsbuild/plugin-vue": "^2.0.1",
+    "@swc/core": "^1.16.22",
+    "@types/chrome": "^0.3.7",
+    "@types/cordova": "^11.0.3",
+    "@vitejs/plugin-vue": "^6.0.10",
+    "chokidar": "^5.0.0",
+    "ci-info": "^4.4.0",
+    "confbox": "^0.3.2",
+    "cross-spawn": "^7.0.6",
+    "dot-prop": "10.2.0",
+    "dotenv-expand": "^13.0.0",
+    "elementtree": "0.1.7",
+    "error-stack-parser": "^2.1.4",
+    "fflate": "^0.8.2",
+    "fs-extra": "^11.4.1",
+    "html-minifier-terser": "^7.2.0",
+    "jiti": "^2.7.0",
+    "kolorist": "^1.8.0",
+    "mlly": "^1.8.2",
+    "nanoid": "^6.0.2",
+    "open": "^11.0.4",
+    "picomatch": "^4.0.7",
+    "rolldown": "~1.2.16",
+    "rspack-merge": "^1.0.1",
+    "sass": "^1.108.1",
+    "semver": "^7.8.6",
+    "serialize-javascript": "^7.1.4",
+    "serve-static": "^2.2.1",
+    "svgo": "^4.1.0",
+    "tinyglobby": "^0.2.17",
+    "ts-essentials": "^10.2.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.6.0",
+    "@eslint/js": "^9.39.4",
+    "@quasar/extras": "2.1.0",
+    "@vue-devtools-rstack/rsbuild": "^0.1.0",
+    "eslint": "^9.39.4",
+    "eslint-import-resolver-node": "^0.4.0",
+    "eslint-import-resolver-typescript": "^4.4.5",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-import-x": "^4.18.1",
+    "eslint-plugin-perfectionist": "^5.9.1",
+    "eslint-plugin-simple-import-sort": "^13.0.0",
+    "globals": "^17.4.0",
+    "neostandard": "^0.13.0",
+    "pinia": "^4.1.0",
+    "quasar": "^2.35.2",
+    "vue": "^3.5.45",
+    "vue-router": "^5.4.0"
+  },
+  "peerDependencies": {
+    "@capacitor/cli": ">= 5",
+    "@electron/packager": ">= 19",
+    "@rsbuild/plugin-babel": ">= 2.1.0",
+    "@rsbuild/plugin-vue-jsx": ">= 2.0.1",
+    "@vue-devtools-rstack/rsbuild": ">= 0.1.0",
+    "builder-util": ">= 26",
+    "electron-builder": ">= 22",
+    "pinia": "^2.0.0 || ^3.0.0 || ^4.0.0",
+    "quasar": "^2.30.0",
+    "typescript": ">= 5",
+    "vue": "^3.2.29",
+    "vue-router": ">= 5",
+    "workbox-build": ">= 7"
+  },
+  "peerDependenciesMeta": {
+    "@capacitor/cli": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    },
+    "electron-builder": {
+      "optional": true
+    },
+    "@electron/packager": {
+      "optional": true
+    },
+    "builder-util": {
+      "optional": true
+    },
+    "pinia": {
+      "optional": true
+    },
+    "workbox-build": {
+      "optional": true
+    },
+    "@vue-devtools-rstack/rsbuild": {
+      "optional": true
+    },
+    "@rsbuild/plugin-vue-jsx": {
+      "optional": true
+    },
+    "@rsbuild/plugin-babel": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": "^30 || ^28 || ^26 || ^24 || ^22.22.0"
+  },
+  "volta": {
+    "node": "lts"
+  },
+  "scripts": {
+    "dev": "pnpm --filter quasar ensure-fresh-build && pnpm --filter app-vite-playground-js dev",
+    "dev:ts": "pnpm --filter quasar ensure-fresh-build && pnpm --filter app-vite-playground-ts dev",
+    "build": "pnpm --filter quasar ensure-fresh-build && pnpm --filter app-vite-playground-js build",
+    "build:ts": "pnpm --filter quasar ensure-fresh-build && pnpm --filter app-vite-playground-ts build",
+    "test": "pnpm test:unit && pnpm test:e2e && pnpm test:e2e:ae",
+    "test:unit": "vitest run",
+    "test:e2e": "vitest run -c vitest-e2e.config.js",
+    "test:e2e:ae": "vitest run -c vitest-e2e-ae.config.js",
+    "test:e2e:spa": "vitest run -c vitest-e2e.config.js -t SPA",
+    "test:e2e:ssr": "vitest run -c vitest-e2e.config.js -t SSR",
+    "test:e2e:ssg": "vitest run -c vitest-e2e.config.js -t SSG",
+    "test:e2e:pwa": "vitest run -c vitest-e2e.config.js -t PWA",
+    "test:e2e:bex": "vitest run -c vitest-e2e.config.js -t BEX",
+    "test:e2e:electron": "vitest run -c vitest-e2e.config.js -t Electron",
+    "test:e2e:capacitor": "vitest run -c vitest-e2e.config.js -t Capacitor",
+    "test:e2e:cordova": "vitest run -c vitest-e2e.config.js -t Cordova",
+    "generate:mcp": "pnpm --filter quasar ensure-fresh-build && pnpm --filter quasar.dev generate:mcp --target app-vite"
+  }
+}
