@@ -145,4 +145,15 @@ export interface QuasarFrameworkConfiguration {
    * @type options {@link QuasarPlugins}
    */
   plugins?: (keyof QuasarPlugins)[];
+
+  /**
+   * Quasar will import SVG files as Vue components if they are referenced with a query.
+   * The default query name is "int" (short from "internal") but can be configured.
+   *
+   * @example
+   * import mySvgComponent from '@/images/logo.svg?int
+   *
+   * @default 'int'
+   */
+  svgQuery?: string;
 }

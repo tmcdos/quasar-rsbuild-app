@@ -56,8 +56,8 @@ export default [
         'error',
         {
           arrays: 'only-multiline',
-          exports: 'never',
-          functions: 'never',
+          exports: 'only-multiline',
+          functions: 'only-multiline',
           imports: 'only-multiline',
           objects: 'only-multiline'
         }

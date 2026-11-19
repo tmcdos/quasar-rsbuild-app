@@ -26,8 +26,7 @@ function interceptRequests(devServerPort)
     // and return it wrapped as if it comes from the extension
     return new Response(request.body, {
       headers: {
-        'Content-Type':
-          request.headers.get('Content-Type') || 'text/javascript',
+        'Content-Type': request.headers.get('Content-Type') || 'text/javascript',
         'Cache-Control': request.headers.get('Cache-Control') || ''
       }
     });
@@ -46,11 +45,8 @@ function interceptRequests(devServerPort)
 
 function connectToDevServer(devServerPort, wsToken)
 {
-  const pingUrl = `http://localhost:${devServerPort}/__vite_ping`;
-  const socket = new WebSocket(
-    `ws://localhost:${devServerPort}?token=${wsToken}`,
-    'vite-hmr'
-  );
+  const pingUrl = `http://localhost:${devServerPort}/`;
+  const socket = new WebSocket(`ws://localhost:${devServerPort}/rsbuild-hmr?token=${wsToken}`);
 
   const contentScriptPortList = new Set();
   const contentScriptPortNameRE = /^quasar@hmr\/content-script\//;
@@ -106,9 +102,7 @@ function connectToDevServer(devServerPort, wsToken)
       {
         if (tries > 2000)
         {
-          console.log(
-            '[QBex|HMR] Aborting re-connect after 2000 failed attempts. Please manually reload the extension.'
-          );
+          console.log('[QBex|HMR] Aborting re-connect after 2000 failed attempts. Please manually reload the extension.');
           return;
         }
 
